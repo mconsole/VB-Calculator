@@ -1,10 +1,23 @@
 ﻿Public Class Form1
-    Dim firstNumber As Integer
-    Dim secondNumber As Integer
-    Dim thirdNumber As Integer
-    Dim operatorType
 
+    ' initializing all variables
+    Dim firstNumber As Decimal
+    Dim secondNumber As Decimal
+    Dim thirdNumber As Decimal
+    Dim operatorType As String
+    Dim isEqual As String
+
+    ' subroutine for clearing the answer on number or decimal button click
+    Sub clearAnswer()
+        If isEqual = "=" Then
+            displayBox.Clear()
+            isEqual = ""
+        End If
+    End Sub
+
+    ' start of code for buttons, toolbar and form
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        clearAnswer()
         displayBox.Text += "1"
     End Sub
 
@@ -21,6 +34,7 @@
     End Sub
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles decimalBtn.Click
+        clearAnswer()
         displayBox.Text += "."
     End Sub
 
@@ -44,43 +58,52 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        clearAnswer()
         displayBox.Text += "2"
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        clearAnswer()
         displayBox.Text += "3"
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        clearAnswer()
         displayBox.Text += "4"
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        clearAnswer()
         displayBox.Text += "5"
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        clearAnswer()
         displayBox.Text += "6"
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        clearAnswer()
         displayBox.Text += "7"
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        clearAnswer()
         displayBox.Text += "8"
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        clearAnswer()
         displayBox.Text += "9"
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        clearAnswer()
         displayBox.Text += "0"
     End Sub
 
     Private Sub equalsBtn_Click(sender As Object, e As EventArgs) Handles equalsBtn.Click
-        secondNumber = Integer.Parse(displayBox.Text)
+        secondNumber = Decimal.Parse(displayBox.Text)
         If operatorType = "+" Then
             thirdNumber = firstNumber + secondNumber
         ElseIf operatorType = "-" Then
@@ -97,28 +120,30 @@
             displayBox.Text = thirdNumber
         End If
 
+        isEqual = "="
+
     End Sub
 
     Private Sub addBtn_Click(sender As Object, e As EventArgs) Handles addBtn.Click
-        firstNumber = Integer.Parse(displayBox.Text)
+        firstNumber = Decimal.Parse(displayBox.Text)
         operatorType = "+"
         displayBox.Clear()
     End Sub
 
     Private Sub minusBtn_Click(sender As Object, e As EventArgs) Handles minusBtn.Click
-        firstNumber = Integer.Parse(displayBox.Text)
+        firstNumber = Decimal.Parse(displayBox.Text)
         operatorType = "-"
         displayBox.Clear()
     End Sub
 
     Private Sub multiplyBtn_Click(sender As Object, e As EventArgs) Handles multiplyBtn.Click
-        firstNumber = Integer.Parse(displayBox.Text)
+        firstNumber = Decimal.Parse(displayBox.Text)
         operatorType = "*"
         displayBox.Clear()
     End Sub
 
     Private Sub divideBtn_Click(sender As Object, e As EventArgs) Handles divideBtn.Click
-        firstNumber = Integer.Parse(displayBox.Text)
+        firstNumber = Decimal.Parse(displayBox.Text)
         operatorType = "\"
         displayBox.Clear()
     End Sub
@@ -140,5 +165,9 @@
         Next
 
         displayBox.Text = newDisplayText
+    End Sub
+
+    Private Sub UnitConversionToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class
